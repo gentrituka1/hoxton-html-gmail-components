@@ -8,24 +8,33 @@
     height: 100vh;
     display: grid;
     grid-template:
-      'header     header    header' auto
-      'left-menu  main      right-menu' 1fr
-      'footer     footer    footer' auto /
-      auto 1fr auto;
+      'header     header    header      header' auto
+      'left-menu  main      right-menu  shortcuts' 1fr
+      'footer     footer    footer      footer' auto / 
+      auto        1fr       auto        auto;
   }
   
-  .header {
+.header {
     grid-area: header;
-    background-color: #ccc;
+    background-color: white;
+    display: grid;
     padding-left: 5px;
     border: 3px solid  black;
 }
 
+.logos{
+    display: grid;
+    grid-template-columns: 250px 1fr 173px;
+}
+
+.right-icons{
+    margin-left: 30px
+}
+
 .the-input{
     height: 45;
-    margin-left: 120px;
-    padding-right: 50px;
-    place-content: cente;
+    padding-right: 80px;
+    place-content: center;
 }
 
 
@@ -62,7 +71,7 @@ a{
     background-color: #fff;
     padding: 1rem;
     border: 3px solid  black;
-    overflow-y: auto;
+    overflow: scroll;
     display: grid;
     grid-gap: 4px;
   }
@@ -78,15 +87,30 @@ a{
     padding: 1rem;
     border: 3px solid  black;
   }
+  .right-menu-image{
+      height: 80%
+  }
   
   .footer {
     grid-area: footer;
-    background-color: #ccc;
+    background-color: white;
     padding: 1rem;
     border: 3px solid  black;
   }
-  
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px){
+      .container{
+        grid-template:
+        'header     header    header      ' auto
+        'left-menu  main      right-menu  ' 1fr
+        'footer     footer    footer      ' auto / 
+        auto        1fr       auto        ;
+      }
+      .shortcuts{
+          display: none;
+      }
+  }
+
+  @media screen and (max-width: 700px) {
     .container {
       grid-template:
         'header     header' auto
@@ -116,18 +140,6 @@ a{
       display: none;
     }
   }
-  .topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-  }
-  
-  .topnav input[type=text] {
-    border: 1px solid #ccc;
-  }
 .buttons a{
     text-align: center;
     width: 150px;
@@ -135,7 +147,6 @@ a{
     border: 5px;
     padding: 20px;
     border-radius: 20%;
-    inline-size: 100px;
     margin: 0px 20px;
     box-shadow: 2px 2px 2px 2px rgb(179, 176, 176);
 }
